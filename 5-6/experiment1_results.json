@@ -1,0 +1,1 @@
+{"cfg": {"N": 1024, "p_conn": 0.02, "field_bits": 1, "device": "cuda", "seed": 42, "dt": 1.0}, "tc": null}

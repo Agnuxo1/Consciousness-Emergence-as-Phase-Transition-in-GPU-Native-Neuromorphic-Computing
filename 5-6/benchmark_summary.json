@@ -1,0 +1,37 @@
+[
+  {
+    "iteration": 0,
+    "duration_sec": 9.360638856887817,
+    "gpu_mem_mb": 0.0,
+    "final_sync": 0.5087890625,
+    "tc": null
+  },
+  {
+    "iteration": 1,
+    "duration_sec": 9.21271800994873,
+    "gpu_mem_mb": 0.0,
+    "final_sync": 0.51171875,
+    "tc": null
+  },
+  {
+    "iteration": 2,
+    "duration_sec": 9.412842512130737,
+    "gpu_mem_mb": 0.0,
+    "final_sync": 0.505859375,
+    "tc": null
+  },
+  {
+    "iteration": 3,
+    "duration_sec": 9.33087706565857,
+    "gpu_mem_mb": 0.0,
+    "final_sync": 0.5029296875,
+    "tc": null
+  },
+  {
+    "iteration": 4,
+    "duration_sec": 9.522515773773193,
+    "gpu_mem_mb": 0.0,
+    "final_sync": 0.5146484375,
+    "tc": null
+  }
+]

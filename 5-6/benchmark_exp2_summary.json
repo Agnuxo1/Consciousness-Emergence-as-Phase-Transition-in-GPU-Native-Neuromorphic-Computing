@@ -1,0 +1,37 @@
+{
+  "total_iterations": 5,
+  "avg_duration": 15.057236289978027,
+  "avg_accuracy": 1.0,
+  "runs": [
+    {
+      "iteration": 0,
+      "duration_sec": 14.705587148666382,
+      "metacog_acc": 1.0,
+      "memory_persistence": 13.485323905944824
+    },
+    {
+      "iteration": 1,
+      "duration_sec": 15.254450559616089,
+      "metacog_acc": 1.0,
+      "memory_persistence": 12.417438507080078
+    },
+    {
+      "iteration": 2,
+      "duration_sec": 15.042465448379517,
+      "metacog_acc": 1.0,
+      "memory_persistence": 12.154558181762695
+    },
+    {
+      "iteration": 3,
+      "duration_sec": 15.414283275604248,
+      "metacog_acc": 1.0,
+      "memory_persistence": 12.88897705078125
+    },
+    {
+      "iteration": 4,
+      "duration_sec": 14.869395017623901,
+      "metacog_acc": 1.0,
+      "memory_persistence": 11.934470176696777
+    }
+  ]
+}

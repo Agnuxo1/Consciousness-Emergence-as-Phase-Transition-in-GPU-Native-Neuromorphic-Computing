@@ -1,0 +1,33 @@
+{
+  "audit": "experiment2_neuroscience",
+  "approach": "A",
+  "results": [
+    {
+      "validation": "izhikevich_model",
+      "validations": [
+        {
+          "name": "Resting Potential Stability",
+          "pass": false,
+          "value": -70.00000238766867,
+          "expected": -65.0
+        },
+        {
+          "name": "Spike Generation",
+          "pass": true,
+          "input_current": 20.0
+        },
+        {
+          "name": "Spike Frequency Adaptation",
+          "pass": true,
+          "first_isi": 5.5,
+          "last_isi": 31.5
+        }
+      ],
+      "pass": false
+    },
+    {
+      "validation": "stdp",
+      "validations": [
+        {
+          "name": "LTP (Long-Term Potentiation)",
+          "pass": 
