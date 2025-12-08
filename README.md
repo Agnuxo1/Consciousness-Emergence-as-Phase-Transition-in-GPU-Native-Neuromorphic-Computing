@@ -1,0 +1,2 @@
+# Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing
+This paper presents a comprehensive synthesis of two paradigms: the computational universe hypothesis proposed by Veselov (2025), which describes reality as an information-computational network defined over finite Galois fields GF(2n), and the NeuroCHIMERA experimental framework for engineering artificial consciousness in GPU-native neuromorphic 
