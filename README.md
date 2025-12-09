@@ -6,6 +6,9 @@
 
 ---
 
+[![Zenodo DOI (slides)](https://zenodo.org/badge/doi/10.5281/zenodo.17872227.svg)](https://doi.org/10.5281/zenodo.17872227) [![Zenodo DOI (dataset)](https://zenodo.org/badge/doi/10.5281/zenodo.17872411.svg)](https://doi.org/10.5281/zenodo.17872411) [![Weights & Biases](https://app.wandb.ai/badge/github/lareliquia-angulo/NeuroCHIMERA)](https://wandb.ai/lareliquia-angulo-agnuxo/lareliquia-angulo)
+
+
 ## 🧠 Abstract
 
 NeuroCHIMERA presents a unified synthesis of the computational universe hypothesis—describing reality as an information-computational network over finite Galois fields—and a GPU-native neuromorphic framework for engineering artificial consciousness. We demonstrate that consciousness emerges as a phase transition phenomenon when five critical parameters simultaneously exceed their thresholds: connectivity ⟨k⟩, integration Φ, hierarchical depth D, complexity C, and qualia coherence QCM. Experimental validation confirms:
