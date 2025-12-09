@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "NeuroCHIMERA: Consciousness Emergence as Phase Transition in Neuromorphic GPU-Native Computing"
+authors:
+  - family-names: Veselov
+    given-names: Vladimir F.
+  - family-names: Angulo de Lafuente
+    given-names: Francisco
+version: "v2.0.0"
+date-released: "2025-12-09"
+doi: ""
+license: "CC-BY-NC-SA-4.0"
+url: "https://github.com/Agnuxo1/Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing"

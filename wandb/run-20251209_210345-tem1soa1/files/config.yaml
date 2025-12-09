@@ -1,0 +1,55 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            14yh4kfwyo8j6uga14iyny1q7rkdmdbp:
+                args:
+                    - --project
+                    - lareliquia-angulo
+                    - --artifact
+                    - release\slides.zip
+                    - --name
+                    - neurochimera-slides
+                codePath: publish\upload_to_wandb.py
+                codePathLocal: publish\upload_to_wandb.py
+                cpu_count: 10
+                cpu_count_logical: 20
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "2000381014016"
+                        used: "489666560000"
+                email: lareliquia.angulo@gmail.com
+                executable: C:\ProgramData\anaconda3\python.exe
+                git:
+                    commit: abebfd6067554f827a7702ae0221d50f8759f8f8
+                    remote: https://github.com/Agnuxo1/Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing.git
+                gpu: NVIDIA GeForce RTX 3090
+                gpu_count: 1
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 10496
+                      memoryTotal: "25769803776"
+                      name: NVIDIA GeForce RTX 3090
+                      uuid: GPU-b163fedb-dda0-d4f4-68b2-298b6975efe3
+                host: DESKTOP-I5AUDGF
+                memory:
+                    total: "25423622144"
+                os: Windows-10-10.0.19045-SP0
+                program: D:\Experiment_Genesis_Veselov-Angulo\publish\upload_to_wandb.py
+                python: CPython 3.13.5
+                root: D:\Experiment_Genesis_Veselov-Angulo
+                startedAt: "2025-12-09T20:03:45.987276Z"
+                writerId: 14yh4kfwyo8j6uga14iyny1q7rkdmdbp
+        m: []
+        python_version: 3.13.5
+        t:
+            "3":
+                - 2
+            "4": 3.13.5
+            "5": 0.21.1
+            "8":
+                - 2
+                - 3
+            "12": 0.21.1
+            "13": windows-amd64
