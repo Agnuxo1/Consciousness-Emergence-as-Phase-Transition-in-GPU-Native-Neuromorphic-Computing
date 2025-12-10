@@ -1,0 +1,8 @@
+{
+  "experiment": 4,
+  "timestamp": "20251210T011049Z",
+  "returncode": 0,
+  "stdout_tail": "etization=1.0000, MeanWeight=0.9990\nEpoch 4500: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 5000: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 5500: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 6000: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 6500: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 7000: Magnetization=1.0000, MeanWeight=0.9990\nEpoch 7500: Magnetization=1.0000, MeanWeight=0.9990\n",
+  "stderr_tail": "",
+  "summary": null
+}

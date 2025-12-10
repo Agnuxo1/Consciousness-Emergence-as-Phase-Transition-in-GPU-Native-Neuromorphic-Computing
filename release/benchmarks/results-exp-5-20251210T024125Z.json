@@ -1,0 +1,8 @@
+{
+  "experiment": 5,
+  "timestamp": "20251210T024125Z",
+  "returncode": 0,
+  "stdout_tail": "[GFNet] Built graph N=65536, k~1310\n[GFNet] Built graph N=65536, k~1310\n[GFNet] Built graph N=65536, k~1310\n[GFNet] Built graph N=65536, k~1310\n[GFNet] Built graph N=65536, k~1310\nBenchmark completed. Summary written to benchmark_summary.json\n",
+  "stderr_tail": "",
+  "summary": null
+}

@@ -1,0 +1,8 @@
+{
+  "experiment": 6,
+  "timestamp": "20251210T012147Z",
+  "returncode": 0,
+  "stdout_tail": "Benchmark Exp2 Done. Avg Duration: 13.7703s, Avg Acc: 1.0000\n",
+  "stderr_tail": "",
+  "summary": null
+}

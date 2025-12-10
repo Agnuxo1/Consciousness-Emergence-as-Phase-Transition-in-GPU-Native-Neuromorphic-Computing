@@ -58,7 +58,8 @@ def collect_summary(exp):
 
 
 def write_result(exp, rc, stdout, stderr, summary):
-    timestamp = datetime.utcnow().isoformat() + 'Z'
+    # Use filesystem-safe UTC timestamp (no colons) for filenames
+    timestamp = datetime.utcnow().strftime('%Y%m%dT%H%M%SZ')
     out = {
         'experiment': exp,
         'timestamp': timestamp,

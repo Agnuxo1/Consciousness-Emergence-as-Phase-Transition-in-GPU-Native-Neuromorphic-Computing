@@ -1,0 +1,80 @@
+{
+  "cifar10": {
+    "benchmark": "CIFAR-10 Image Classification",
+    "dataset": "CIFAR-10",
+    "dataset_size": {
+      "train": 50000,
+      "test": 10000
+    },
+    "model": "NeuroCHIMERA-Net (CNN)",
+    "parameters": 2473610,
+    "metrics": {
+      "accuracy": 76.32,
+      "top1_error": 23.68,
+      "train_time_seconds": 690.29,
+      "train_epochs": 10,
+      "avg_inference_time_ms": 39.9962,
+      "throughput_samples_per_sec": 2500.24
+    },
+    "per_class_accuracy": {
+      "plane": 84.7,
+      "car": 92.8,
+      "bird": 73.4,
+      "cat": 59.8,
+      "deer": 63.1,
+      "dog": 71.9,
+      "frog": 67.9,
+      "horse": 81.9,
+      "ship": 84.4,
+      "truck": 83.3
+    },
+    "hardware": "CPU",
+    "framework": "PyTorch",
+    "timestamp": "2025-12-10T06:27:34.571979+00:00"
+  },
+  "imdb": {
+    "benchmark": "IMDb Sentiment Classification",
+    "dataset": "IMDb (subset)",
+    "dataset_size": {
+      "train": 800,
+      "test": 200
+    },
+    "model": "NeuroCHIMERA-TextClassifier (EmbeddingBag + FC)",
+    "parameters": 648386,
+    "vocabulary_size": 5000,
+    "metrics": {
+      "accuracy": 98.0,
+      "precision": 0.0,
+      "recall": 0,
+      "f1_score": 0,
+      "train_time_seconds": 0.2,
+      "train_epochs": 5,
+      "inference_time_ms": 0.7787
+    },
+    "hardware": "CPU",
+    "framework": "PyTorch",
+    "timestamp": "2025-12-10T06:28:03.373550+00:00"
+  },
+  "regression": {
+    "benchmark": "Regression (Synthetic Data)",
+    "dataset": "Synthetic (make_regression)",
+    "dataset_size": {
+      "train": 800,
+      "test": 200
+    },
+    "model": "NeuroCHIMERA-RegressionNet",
+    "parameters": 3009,
+    "metrics": {
+      "mse": 206.4787,
+      "rmse": 14.3694,
+      "mae": 11.7858,
+      "r2_score": 0.992,
+      "train_time_seconds": 0.15,
+      "train_epochs": 100,
+      "inference_time_ms": 0.1655
+    },
+    "hardware": "CPU",
+    "framework": "PyTorch",
+    "timestamp": "2025-12-10T06:28:03.642585+00:00"
+  }
+}
