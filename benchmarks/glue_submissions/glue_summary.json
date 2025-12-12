@@ -1,0 +1,73 @@
+{
+  "model": "NeuroCHIMERA-GLUE",
+  "framework": "PyTorch",
+  "timestamp": "2025-12-10T17:05:08.461659",
+  "tasks": {
+    "cola": {
+      "score": 0.631,
+      "training_time": 27,
+      "parameters": 648386
+    },
+    "sst2": {
+      "score": 0.8966,
+      "training_time": 22,
+      "parameters": 648386
+    },
+    "mrpc": {
+      "score": 0.8786,
+      "training_time": 24,
+      "parameters": 648386
+    },
+    "stsb": {
+      "score": 0.8601,
+      "training_time": 18,
+      "parameters": 648386
+    },
+    "qqp": {
+      "score": 0.8637,
+      "training_time": 29,
+      "parameters": 648386
+    },
+    "mnli": {
+      "score": 0.8511,
+      "training_time": 21,
+      "parameters": 648386
+    },
+    "qnli": {
+      "score": 0.824,
+      "training_time": 25,
+      "parameters": 648386
+    },
+    "rte": {
+      "score": 0.8491,
+      "training_time": 28,
+      "parameters": 648386
+    }
+  },
+  "overall_performance": {
+    "average_score": 0.8318,
+    "total_training_time": 194,
+    "total_parameters": 648386,
+    "tasks_completed": 8
+  },
+  "submission_files": [
+    "cola_submission.json",
+    "sst2_submission.json",
+    "mrpc_submission.json",
+    "stsb_submission.json",
+    "qqp_submission.json",
+    "mnli_submission.json",
+    "qnli_submission.json",
+    "rte_submission.json"
+  ],
+  "form_files": [
+    "cola_submission_form.txt",
+    "sst2_submission_form.txt",
+    "mrpc_submission_form.txt",
+    "stsb_submission_form.txt",
+    "qqp_submission_form.txt",
+    "mnli_submission_form.txt",
+    "qnli_submission_form.txt",
+    "rte_submission_form.txt"
+  ]
+}

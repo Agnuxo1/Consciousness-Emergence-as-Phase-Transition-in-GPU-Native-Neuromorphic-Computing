@@ -1,0 +1,37 @@
+name: Scheduled Benchmarks
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'  # Weekly on Monday at 04:00 UTC
+  workflow_dispatch: {}
+
+jobs:
+  run-benchmarks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements_experiments.txt || true
+          pip install wandb || true
+
+      - name: Run benchmarks
+        env:
+          WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+        run: |
+          python publish/run_benchmarks.py
+
+      - name: Upload benchmark artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: release/benchmarks

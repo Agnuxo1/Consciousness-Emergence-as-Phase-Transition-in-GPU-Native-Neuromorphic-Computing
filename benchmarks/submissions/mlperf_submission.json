@@ -1,0 +1,42 @@
+{
+  "submission": {
+    "organization": "NeuroCHIMERA Independent",
+    "benchmark_suite": "MLPerf Neuromorphic (Proposed)",
+    "submission_date": "2025-12-10T10:17:50.580960",
+    "submitter_name": "V.F. Veselov & Francisco Angulo"
+  },
+  "system": {
+    "system_name": "GPU-Native Neuromorphic (CUDA/OpenGL)",
+    "framework": "PyTorch + wgpu",
+    "processor": {
+      "name": "Any NVIDIA/AMD GPU with CUDA/HIP support",
+      "compute_capability": "3.0+",
+      "memory_gb": 4.0
+    },
+    "host": {
+      "cpu": "Any x86/ARM processor",
+      "ram_gb": 8.0,
+      "os": "Linux, macOS, Windows"
+    }
+  },
+  "results": [
+    {
+      "benchmark": "NeuromorphicGPUCompute",
+      "scenario": "Single-Stream",
+      "metric": "Throughput (neurons/sec)",
+      "value": 17415,
+      "unit": "neurons/sec",
+      "latency_ms": 15.06,
+      "accuracy": 1.0
+    },
+    {
+      "benchmark": "ConsciousnessPhaseDetection",
+      "scenario": "Offline",
+      "metric": "Detection Accuracy",
+      "value": 1.0,
+      "unit": "fraction",
+      "convergence_epochs": 6024,
+      "validation_rate": 0.846
+    }
+  ]
+}

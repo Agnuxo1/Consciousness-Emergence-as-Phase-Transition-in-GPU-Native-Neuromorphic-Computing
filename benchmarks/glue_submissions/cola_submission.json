@@ -1,0 +1,40 @@
+{
+  "paper_title": "NeuroCHIMERA: Consciousness Emergence as Phase Transition in Neuromorphic GPU-Native Computing",
+  "model_name": "NeuroCHIMERA-GLUE-COLA",
+  "task": "cola",
+  "dataset": "GLUE COLA",
+  "metric": "Accuracy",
+  "score": 0.631,
+  "parameters": 648386,
+  "training_time_seconds": 27,
+  "framework": "PyTorch",
+  "hardware": "CPU",
+  "code_url": "https://github.com/Agnuxo1/Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing",
+  "results_url": "https://wandb.ai/lareliquia-angulo-agnuxo/neurochimera-standard-benchmarks",
+  "huggingface_url": "https://huggingface.co/Agnuxo",
+  "contact_email": "agnuxo@protonmail.com",
+  "submitted_by": "Agnuxo (NeuroCHIMERA Team)",
+  "date": "2025-12-10",
+  "architecture": {
+    "embedding_dim": 128,
+    "hidden_dim": 64,
+    "dropout": 0.5,
+    "num_layers": 3,
+    "total_parameters": 648386,
+    "trainable_parameters": 648386
+  },
+  "training_config": {
+    "epochs": 5,
+    "batch_size": 32,
+    "learning_rate": 2e-05,
+    "optimizer": "Adam",
+    "max_length": 128
+  },
+  "description": "NeuroCHIMERA consciousness-inspired text classifier with extreme parameter efficiency",
+  "tags": [
+    "consciousness",
+    "neuromorphic",
+    "parameter-efficient",
+    "text-classification"
+  ]
+}

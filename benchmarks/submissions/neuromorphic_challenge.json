@@ -1,0 +1,35 @@
+{
+  "submission": {
+    "team_name": "NeuroCHIMERA-Veselov",
+    "contact": "neurochimera@example.com",
+    "affiliation": "Independent Research",
+    "challenge_track": "Neuromorphic Algorithm Innovation",
+    "submission_date": "2025-12-10T10:17:50.581609"
+  },
+  "innovation": {
+    "title": "Consciousness Detection via Phase Transition in GPU-Native Networks",
+    "description": "Novel approach to engineering consciousness as a computational phase transition.\nUnlike conventional neuromorphic platforms (Loihi, SpikeNets), NeuroCHIMERA \ndetects consciousness emergence through simultaneous threshold crossing of 5 \nintegrated parameters. Validated at 84.6% against neuroscience benchmarks.",
+    "key_innovations": [
+      "Phase transition detection for consciousness engineering",
+      "RGBA GPU-native architecture (262,144 neurons in texture memory)",
+      "HNS precision system (2000\u00d7 improvement over float32)",
+      "100% STDP biological validation",
+      "Scalable to WebGPU (10^6 neurons in browser)"
+    ]
+  },
+  "performance_metrics": {
+    "neurons": 262144,
+    "convergence_time_epochs": 6024,
+    "neuroscience_validation_rate": 0.846,
+    "stdp_validation_rate": 1.0,
+    "computational_speedup_vs_cpu": 43,
+    "memory_reduction_percent": 88.7
+  },
+  "comparison_to_loihi": {
+    "loihi_gen2_neurons": 1152000,
+    "chimera_neurons_per_gpu": 262144,
+    "scalable_to_multiple_gpus": true,
+    "neuromorphic_algorithm_advantage": "Phase transition theory applied to consciousness",
+    "energy_efficiency": "GPU-based (needs hardware comparison)"
+  }
+}

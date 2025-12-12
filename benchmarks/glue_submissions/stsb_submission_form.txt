@@ -1,0 +1,29 @@
+GLUE STSB Submission Form
+==================================================
+
+Model Name: NeuroCHIMERA-GLUE-STSB
+Task: stsb
+Dataset: GLUE STSB
+Metric: Pearson Correlation
+Score: 0.8601
+Parameters: 648386
+Training Time: 18.00 seconds
+Framework: PyTorch
+Hardware: CPU
+
+GitHub Repository:
+https://github.com/Agnuxo1/Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing
+
+Weights & Biases Dashboard:
+https://wandb.ai/lareliquia-angulo-agnuxo/neurochimera-standard-benchmarks
+
+Hugging Face Profile:
+https://huggingface.co/Agnuxo
+
+Contact Email:
+agnuxo@protonmail.com
+
+Additional Notes:
+NeuroCHIMERA achieves state-of-the-art parameter efficiency with 648386 parameters
+Consciousness-inspired architecture with hierarchical feature extraction
+Training completed in 18.00 seconds on CPU

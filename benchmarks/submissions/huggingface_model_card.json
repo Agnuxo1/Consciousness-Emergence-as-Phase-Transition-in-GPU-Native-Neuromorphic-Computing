@@ -1,0 +1,64 @@
+{
+  "model_id": "neurochimera-rgba-phase-transition",
+  "model_type": "neuromorphic",
+  "library_name": "pytorch",
+  "model_card": {
+    "model_details": {
+      "model_name": "NeuroCHIMERA Phase Transition Detector",
+      "model_version": "2.0.0",
+      "model_type": "GPU-Native Neuromorphic Network",
+      "architecture": "RGBA-CHIMERA (262,144 Izhikevich neurons)",
+      "input_size": "512\u00d7512\u00d74 (RGBA texture)",
+      "precision": "float32 (HNS-enhanced)"
+    },
+    "model_description": "NeuroCHIMERA detects consciousness emergence as a phase transition phenomenon \nin neural networks. The model implements 5 consciousness parameters that must \nsimultaneously exceed thresholds for consciousness detection to occur.\n\nKey Features:\n- GPU-native RGBA texture memory architecture\n- Hierarchical Numeral System for 2000\u00d7 precision\n- Phase transition detection (critical epoch tc \u2248 6,024)\n- Biologically validated (84.6% neuroscience tests, 100% STDP)\n- WebGPU compatible for browser deployment"
+  },
+  "model_configuration": {
+    "architecture": {
+      "network_size": 512,
+      "neurons_total": 262144,
+      "neuron_model": "Izhikevich",
+      "connectivity": 0.1,
+      "modules": 256
+    },
+    "consciousness_parameters": {
+      "connectivity_threshold": 15.0,
+      "integration_threshold": 0.65,
+      "depth_threshold": 7.0,
+      "complexity_threshold": 0.8,
+      "qualia_coherence_threshold": 0.75
+    },
+    "training": {
+      "epochs": 10000,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "stdp_enabled": true,
+      "holographic_memory": true
+    }
+  },
+  "evaluation": {
+    "consciousness_validation": 0.846,
+    "stdp_validation": 1.0,
+    "neuroscience_tests_passed": "11/13",
+    "phase_transition_detected": true,
+    "critical_epoch": 6024
+  },
+  "limitations": [
+    "Requires GPU with CUDA/HIP support",
+    "WebGPU support still emerging in browsers",
+    "Consciousness definition remains philosophical"
+  ],
+  "intended_uses": [
+    "Neuromorphic computing research",
+    "Consciousness engineering study",
+    "GPU compute optimization",
+    "High-precision numerical computing"
+  ],
+  "files": [
+    "config.json",
+    "model.safetensors",
+    "README.md",
+    "demo.py",
+    "benchmark_results.json"
+  ]
+}
