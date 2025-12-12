@@ -242,5 +242,34 @@ nul
 *_CHECKLIST.md
 *_STRATEGY.md
 *_INDEX.md
+*_NAVIGATION*.md
+*_PACKAGE*.md
+*_RESULTS*.md
 START_HERE.md
+START_SUBMISSION.py
+QUICK_AUTO_SUBMIT.py
+AUTO_SUBMISSION_AGENT.py
+GENERATE_GLUE_RESULTS.py
 submission_package/
+DELIVERABLES_SUMMARY.txt
+
+# Specific temporary files
+CITATION.md
+IMDB_SUBMISSION_FORM.txt
+*.ps1
+
+# Upload scripts (keep only in publish/)
+/*_upload.py
+/zenodo_*.py
+/osf_*.py
+/wandb_publish.py
+validate_benchmarks.py
+
+# Environment files
+environment.yml
+
+# Claude Code configuration (local only)
+.claude/
+
+# Large release files
+release/**/*.zip
