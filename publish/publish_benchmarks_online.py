@@ -17,7 +17,9 @@ if sys.platform == 'win32':
 
 BASE_DIR = Path(__file__).parent.parent
 BENCHMARKS_DIR = BASE_DIR / "release" / "benchmarks"
-WANDB_API_KEY = "b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+WANDB_API_KEY = os.getenv('WANDB_API_KEY')
+if not WANDB_API_KEY:
+    raise SystemExit('WANDB_API_KEY not found in environment. Set WANDB_API_KEY env var or run `wandb login`.')
 
 def publish_to_wandb():
     """Publish all benchmark results to W&B with detailed visualizations."""

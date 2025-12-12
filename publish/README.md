@@ -23,7 +23,7 @@ python publish/audit_experiments.py
 python publish/run_benchmarks.py
 
 # 3. Crear dashboards W&B
-export WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
 python publish/create_public_dashboards.py
 
 # 4. Subir a plataformas
@@ -140,17 +140,17 @@ Todas las credenciales están configuradas en los scripts:
 
 ```bash
 # W&B
-WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
 
 # Zenodo
-ZENODO_TOKEN="lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw"
+ZENODO_TOKEN="<YOUR_ZENODO_TOKEN>"
 
 # OSF
-OSF_TOKEN="KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL"
+OSF_TOKEN="<YOUR_OSF_TOKEN>"
 
 # Figshare FTP
 Username: 5292188
-Password: $GNJmzWHcQL6XSS
+Password: <FIGSHARE_PASSWORD>
 ```
 
 ⚠️ **Importante**: Estas credenciales están hardcoded para facilitar el uso. En producción, considerar usar variables de entorno o GitHub Secrets.
@@ -185,7 +185,7 @@ pip install wgpu  # Para experimentos 1-2
 echo $WANDB_API_KEY
 
 # Re-login
-wandb login b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
+wandb login <YOUR_WANDB_API_KEY>
 ```
 
 ### Problema: Zenodo draft no se crea

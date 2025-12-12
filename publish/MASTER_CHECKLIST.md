@@ -61,7 +61,7 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
 
 - [ ] Set API key:
   ```bash
-  export WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+  export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
   ```
 
 - [ ] Create dashboards:
@@ -86,72 +86,39 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
 **URL**: https://wandb.ai/lareliquia-angulo
 
 ---
-
 ### 3.2 Zenodo ✓
-**Priority**: HIGH | **Automated**: DRAFT | **DOI**: YES
 
 - [ ] Run upload script:
   ```bash
   python publish/upload_all_platforms.py
   ```
-
 - [ ] Review draft deposition at: https://zenodo.org/me/uploads
-
+  export OSF_TOKEN="<YOUR_OSF_TOKEN>"
 - [ ] Verify uploaded files:
   - [ ] dataset_all.zip (complete dataset)
   - [ ] NeuroCHIMERA_Paper.html
-  - [ ] benchmark_results_*.zip
-
+ - Password: `<FIGSHARE_PASSWORD>`
 - [ ] Review metadata:
   - [ ] Title: NeuroCHIMERA: Consciousness Emergence as Phase Transition...
   - [ ] Authors: V.F. Veselov, Francisco Angulo de Lafuente
   - [ ] Keywords: consciousness, phase transition, neuromorphic, GPU, benchmark
-  - [ ] License: CC-BY-4.0
-  - [ ] Publication date: 2025
-
-- [ ] Publish deposition:
-  - [ ] Click "Publish" button
   - [ ] Confirm publication (irreversible)
   - [ ] **Copy DOI** (e.g., 10.5281/zenodo.XXXXX)
 
 - [ ] Update DOI in:
-  - [ ] README.md
-  - [ ] CITATION.md
-  - [ ] Paper
-  - [ ] publish/update_readme_badges.py
-
 **Status**: ⏳ Pending
 **URL**: https://zenodo.org/me/uploads
 **DOI**: `10.5281/zenodo.17872411` (update after publish)
 
----
-
-### 3.3 Open Science Framework (OSF) ✓
-**Priority**: MEDIUM | **Automated**: PARTIAL | **DOI**: YES
-
-- [ ] Run upload script (already creates project):
-  ```bash
-  python publish/upload_all_platforms.py
-  ```
 
 - [ ] Note project ID from output
 
 - [ ] Upload files manually:
-  ```bash
-  pip install osfclient
-  export OSF_TOKEN="KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL"
-
-  # Upload dataset
   osf -p <PROJECT_ID> upload release/dataset_all.zip /data/
 
-  # Upload benchmarks
-  osf -p <PROJECT_ID> upload release/benchmarks/ /benchmarks/
-
-  # Upload paper
   osf -p <PROJECT_ID> upload NeuroCHIMERA_Paper.html /paper/
   ```
 
-- [ ] Verify project:
   - [ ] Visit https://osf.io/<PROJECT_ID>
   - [ ] Check all files uploaded
   - [ ] Project is public
@@ -161,12 +128,12 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
   - [ ] Visit https://osf.io/preprints/
   - [ ] Upload paper
   - [ ] Link to OSF project
-
+Figshare Pass: <FIGSHARE_PASSWORD>
 - [ ] Copy project URL for citations
 
 **Status**: ⏳ Pending
 **URL**: https://osf.io/ (project URL TBD)
-**Token**: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+**Token**: <YOUR_OSF_TOKEN>
 
 ---
 
@@ -177,7 +144,7 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
 
 **Credentials**:
 - Username: `5292188`
-- Password: `$GNJmzWHcQL6XSS`
+- Password: `<FIGSHARE_PASSWORD>`
 
 **Option A - Web Upload**:
 - [ ] Visit https://figshare.com/
@@ -194,7 +161,6 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
   - [ ] Keywords: consciousness, phase transition, neuromorphic, GPU, benchmark
   - [ ] Description: [Copy from paper abstract]
   - [ ] License: CC-BY-4.0
-  - [ ] Funding: [If applicable]
 - [ ] Add references:
   - [ ] Link to GitHub repository
   - [ ] Link to Zenodo DOI
@@ -204,7 +170,7 @@ Complete checklist for publishing 6 experiments across all platforms with maximu
 
 **Option B - FTP Upload**:
 ```bash
-lftp -u 5292188,'$GNJmzWHcQL6XSS' ftp://figshare.com
+lftp -u 5292188,'<FIGSHARE_PASSWORD>' ftp://figshare.com
 cd uploads
 put release/dataset_all.zip
 put release/benchmarks/*.json
@@ -467,9 +433,9 @@ Update platform IDs in script, then re-run to add to README.
 - [ ] Verify workflow file exists: `.github/workflows/benchmarks.yml`
 
 - [ ] Add repository secrets:
-  - [ ] `WANDB_API_KEY`: b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
-  - [ ] `ZENODO_TOKEN`: lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw
-  - [ ] `OSF_TOKEN`: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+  - [ ] `WANDB_API_KEY`: <YOUR_WANDB_API_KEY>
+  - [ ] `ZENODO_TOKEN`: <YOUR_ZENODO_TOKEN>
+  - [ ] `OSF_TOKEN`: <YOUR_OSF_TOKEN>
 
 - [ ] Test workflow manually:
   - [ ] Go to Actions tab
@@ -675,11 +641,11 @@ When making updates:
 
 ### Credentials
 ```
-W&B API: b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
-Zenodo Token: lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw
-OSF Token: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+W&B API: <YOUR_WANDB_API_KEY>
+Zenodo Token: <YOUR_ZENODO_TOKEN>
+OSF Token: <YOUR_OSF_TOKEN>
 Figshare User: 5292188
-Figshare Pass: $GNJmzWHcQL6XSS
+Figshare Pass: <FIGSHARE_PASSWORD>
 ```
 
 ### Key Commands

@@ -205,3 +205,42 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Weights & Biases
+wandb/
+
+# Data and results
+data/
+
+# Benchmark results (untracked only)
+/benchmark_*.json
+*_results/
+*_submission_results/
+auto_submission_log.txt
+imdb_submission_data.json
+quick_submission_report.json
+CIFAR10_SUBMISSION.json
+PAPERS_WITH_CODE_SUBMISSION.json
+PAPERS_WITH_CODE_FINAL_SUBMISSION.json
+
+# Release artifacts (keep only final releases)
+release/audit_report_*.json
+release/audit_report_*.md
+release/upload_report_*.json
+release/academia_export/
+release/datahub_export/
+release/openml_export/
+
+# Temporary files
+nul
+
+# Documentation drafts (keep only final docs in repo)
+*_SUBMISSION*.md
+*_GUIDE.md
+*_SUMMARY.md
+*_REPORT.md
+*_CHECKLIST.md
+*_STRATEGY.md
+*_INDEX.md
+START_HERE.md
+submission_package/

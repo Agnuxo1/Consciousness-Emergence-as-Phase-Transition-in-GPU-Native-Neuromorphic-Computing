@@ -69,7 +69,7 @@ python publish/zenodo_upload.py
 
 **Access**: https://osf.io/
 
-**Token**: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+**Token**: `<YOUR_OSF_TOKEN>`
 
 **What gets uploaded**:
 - Project overview
@@ -104,7 +104,7 @@ osf -p <project_id> upload NeuroCHIMERA_Paper.html /paper/
 
 **FTP Credentials**:
 - Username: 5292188
-- Password: $GNJmzWHcQL6XSS
+- Password: `<FIGSHARE_PASSWORD>`
 
 **What to upload**:
 - Dataset files
@@ -130,7 +130,7 @@ osf -p <project_id> upload NeuroCHIMERA_Paper.html /paper/
 **Option B - FTP**:
 ```bash
 # Using lftp
-lftp -u 5292188,'$GNJmzWHcQL6XSS' ftp://figshare.com
+lftp -u 5292188,'<FIGSHARE_PASSWORD>' ftp://figshare.com
 cd uploads
 put release/dataset_all.zip
 put release/benchmarks/*.json

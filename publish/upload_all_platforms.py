@@ -30,11 +30,11 @@ if sys.platform == 'win32':
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 # Configuration from environment
-WANDB_API_KEY = "b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
-ZENODO_TOKEN = "lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw"
-FIGSHARE_USERNAME = "5292188"
-FIGSHARE_PASSWORD = "$GNJmzWHcQL6XSS"
-OSF_TOKEN = "KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL"
+WANDB_API_KEY = os.getenv('WANDB_API_KEY')
+ZENODO_TOKEN = os.getenv('ZENDO_TOKEN') or os.getenv('ZENODO_TOKEN')
+FIGSHARE_USERNAME = os.getenv('FIGSHARE_USERNAME')
+FIGSHARE_PASSWORD = os.getenv('FIGSHARE_PASSWORD')
+OSF_TOKEN = os.getenv('OSF_TOKEN')
 
 BASE_DIR = Path(__file__).parent.parent
 RELEASE_DIR = BASE_DIR / "release"
@@ -51,6 +51,8 @@ class PlatformUploader:
         print("\n=== UPLOADING TO WEIGHTS & BIASES ===")
         try:
             import wandb
+            if not WANDB_API_KEY:
+                raise SystemExit('WANDB_API_KEY not found in environment. Set WANDB_API_KEY env var or run `wandb login`.')
             wandb.login(key=WANDB_API_KEY)
 
             # Create comprehensive project
@@ -151,6 +153,8 @@ class PlatformUploader:
 
             # Create new deposition
             headers = {"Content-Type": "application/json"}
+            if not ZENODO_TOKEN:
+                raise SystemExit('ZENDO_TOKEN (Zenodo access token) not found in environment. Set ZENDO_TOKEN env var.')
             params = {'access_token': ZENODO_TOKEN}
 
             r = requests.post(
@@ -274,6 +278,8 @@ class PlatformUploader:
         try:
             import requests
 
+            if not OSF_TOKEN:
+                raise SystemExit('OSF_TOKEN not found in environment. Set OSF_TOKEN env var if you want to create an OSF project programmatically.')
             headers = {
                 'Authorization': f'Bearer {OSF_TOKEN}',
                 'Content-Type': 'application/json'
@@ -319,6 +325,27 @@ class PlatformUploader:
             self.results['osf'] = {'status': 'error', 'error': str(e)}
             print(f"✗ OSF upload failed: {e}")
 
+    def upload_to_hf(self):
+        """Upload release files to Hugging Face Hub as a dataset repo."""
+        print("\n=== UPLOADING TO HUGGING FACE HUB ===")
+        try:
+            import subprocess
+            hf_repo = "Agnuxo/neurochimera-dataset"
+            hf_token = os.getenv('HF_TOKEN') or os.getenv('HUGGINGFACE_TOKEN')
+            if not hf_token:
+                raise SystemExit('HF_TOKEN not found in environment. Set HF_TOKEN or HUGGINGFACE_TOKEN env var.')
+            cmd = [sys.executable, str(Path(__file__).parent / 'upload_to_hf.py'), '--repo-id', hf_repo, '--repo-type', 'dataset', '--path', str(RELEASE_DIR), '--commit', f'Upload {self.timestamp}']
+            subprocess.run(cmd, check=True)
+            self.results['huggingface'] = {
+                'status': 'success',
+                'repo': hf_repo,
+                'url': f'https://huggingface.co/{hf_repo}'
+            }
+            print(f"✓ Hugging Face upload complete: https://huggingface.co/{hf_repo}")
+        except Exception as e:
+            self.results['huggingface'] = {'status': 'error', 'error': str(e)}
+            print(f"✗ Hugging Face upload failed: {e}")
+
     def prepare_openml_export(self):
         """Prepare datasets for OpenML format."""
         print("\n=== PREPARING OPENML EXPORT ===")
@@ -350,6 +377,22 @@ class PlatformUploader:
         except Exception as e:
             self.results['openml'] = {'status': 'error', 'error': str(e)}
             print(f"✗ OpenML preparation failed: {e}")
+
+    def register_openml_datasets(self):
+        """Use the provided `openml_dataset_registration.py` to register datasets programmatically (optional)."""
+        print("\n=== REGISTERING DATASETS ON OPENML ===")
+        try:
+            openml_api_key = os.getenv('OPENML_API_KEY')
+            if not openml_api_key:
+                raise SystemExit('OPENML_API_KEY not found in environment. Set it if you want to programmatically register datasets on OpenML.')
+            import subprocess
+            cmd = [sys.executable, str(Path(__file__).parent / 'openml_dataset_registration.py'), '--api-key', openml_api_key]
+            subprocess.run(cmd, check=True)
+            self.results['openml_register'] = {'status': 'success', 'note': 'Datasets registered on OpenML (check output)'}
+            print('✓ OpenML registration executed (check logs for details)')
+        except Exception as e:
+            self.results['openml_register'] = {'status': 'error', 'error': str(e)}
+            print(f"✗ OpenML registration failed: {e}")
 
     def prepare_datahub_export(self):
         """Prepare datasets for DataHub."""
@@ -485,9 +528,19 @@ def main():
     uploader.upload_to_wandb()
     uploader.upload_to_zenodo()
     uploader.upload_to_osf()
+    # Optional: push to Hugging Face Hub (dataset repo)
+    try:
+        uploader.upload_to_hf()
+    except SystemExit as e:
+        print('Hugging Face upload skipped:', e)
 
     # Prepare exports for manual upload
     uploader.prepare_openml_export()
+    # Optionally register on OpenML when API key is provided
+    try:
+        uploader.register_openml_datasets()
+    except SystemExit as e:
+        print('OpenML registration skipped:', e)
     uploader.prepare_datahub_export()
     uploader.prepare_academia_export()
 

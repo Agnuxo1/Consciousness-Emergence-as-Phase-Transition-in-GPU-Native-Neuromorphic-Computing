@@ -8,7 +8,9 @@ import wandb
 import json
 from pathlib import Path
 
-WANDB_API_KEY = "b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+WANDB_API_KEY = os.getenv('WANDB_API_KEY')
+if not WANDB_API_KEY:
+    raise SystemExit('WANDB_API_KEY not found in environment. Set WANDB_API_KEY env var or run `wandb login`.')
 PROJECT_NAME = "neurochimera-experiments"  # Changed to simpler name
 ENTITY = "lareliquia-angulo"
 

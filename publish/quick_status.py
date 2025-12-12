@@ -100,14 +100,22 @@ def check_credentials():
     print("=" * 80)
 
     creds = {
-        "W&B API Key": "b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"[:20] + "...",
-        "Zenodo Token": "lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw"[:20] + "...",
-        "OSF Token": "KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL"[:20] + "...",
-        "Figshare User": "5292188",
+        "W&B API Key": os.getenv('WANDB_API_KEY'),
+        "Zenodo Token": os.getenv('ZENDO_TOKEN') or os.getenv('ZENODO_TOKEN'),
+        "OSF Token": os.getenv('OSF_TOKEN'),
+        "Figshare User": os.getenv('FIGSHARE_USERNAME'),
     }
 
+    def mask(val):
+        if not val:
+            return 'NOT SET'
+        s = str(val)
+        if len(s) <= 10:
+            return s
+        return s[:6] + '...' + s[-4:]
+
     for name, value in creds.items():
-        print(f"  ✓ {name:<20} {value}")
+        print(f"  ✓ {name:<20} {mask(value)}")
 
 def check_platforms():
     """Check platform readiness."""

@@ -65,7 +65,7 @@ Based on the latest audit (`release/audit_report_*.md`):
 
 #### 1. Weights & Biases (W&B) ✓
 ```bash
-export WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
 python publish/create_public_dashboards.py
 ```
 
@@ -105,7 +105,7 @@ python publish/upload_all_platforms.py
 
 **Access**: https://osf.io/
 
-**Token**: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+**Token**: `<YOUR_OSF_TOKEN>`
 
 **What happens**:
 - Creates public project
@@ -115,7 +115,7 @@ python publish/upload_all_platforms.py
 **Manual file upload**:
 ```bash
 pip install osfclient
-export OSF_TOKEN="KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL"
+export OSF_TOKEN="<YOUR_OSF_TOKEN>"
 osf -p <project_id> upload release/ /data/
 ```
 
@@ -126,7 +126,7 @@ osf -p <project_id> upload release/ /data/
 
 **FTP Credentials**:
 - Username: `5292188`
-- Password: `$GNJmzWHcQL6XSS`
+- Password: `<FIGSHARE_PASSWORD>`
 
 **Option A - Web Interface**:
 1. Visit https://figshare.com/account/home
@@ -144,7 +144,7 @@ osf -p <project_id> upload release/ /data/
 **Option B - FTP Upload**:
 ```bash
 # Using lftp (Linux/Mac)
-lftp -u 5292188,'$GNJmzWHcQL6XSS' ftp://figshare.com
+lftp -u 5292188,'<FIGSHARE_PASSWORD>' ftp://figshare.com
 cd uploads
 put release/dataset_all.zip
 put release/benchmarks/*.json
@@ -169,6 +169,22 @@ python publish/upload_all_platforms.py
 # This creates release/openml_export/ with ARFF files
 ```
 
+**Programmatic registration via script**
+```bash
+# Create an OpenML API key at https://www.openml.org/profile
+export OPENML_API_KEY="<YOUR_OPENML_API_KEY>"
+python publish/openml_dataset_registration.py --input release/openml_export/ --name NeuroCHIMERA --description "NeuroCHIMERA experiment datasets" --version 1.0 --license CC-BY-4.0
+```
+
+This script will convert CSV/JSON to ARFF if needed and call the OpenML client to create and publish a dataset programmatically. The tool prints the created dataset ID and a link to the dataset on OpenML when available.
+
+**Automated**: You can also add `OPENML_API_KEY` to your environment and run the full pipeline:
+```bash
+export OPENML_API_KEY="<YOUR_OPENML_API_KEY>"
+python publish/upload_all_platforms.py
+```
+The pipeline will automatically register datasets on OpenML when the API key is available.
+
 **Manual Upload**:
 1. Visit https://www.openml.org/
 2. Login to your account
@@ -183,6 +199,29 @@ python publish/upload_all_platforms.py
    - Click "Submit"
 
 #### 6. DataHub 📤
+#### 7. Hugging Face Hub (Datasets) ✓
+**Access**: https://huggingface.co/
+
+**Preparation**:
+```bash
+# Create a write token in your Hugging Face account: https://huggingface.co/settings/tokens
+export HF_TOKEN="<YOUR_HF_TOKEN>"
+``` 
+
+**Upload via script**:
+```bash
+python publish/upload_to_hf.py --repo-id Agnuxo/neurochimera-dataset --repo-type dataset --path release --commit "Initial upload"
+```
+
+**Notes**: This creates a dataset repository containing `release/` files. Consider splitting large files and use LFS for big assets.
+
+**Automated**: If you prefer to upload as part of the full pipeline, ensure `HF_TOKEN` is set and run:
+```bash
+export HF_TOKEN="<YOUR_HF_TOKEN>"
+python publish/upload_all_platforms.py
+```
+The `upload_all_platforms.py` script will upload to Hugging Face automatically when `HF_TOKEN` is present in the environment.
+
 **Access**: https://datahub.io/
 
 **Preparation**:
@@ -369,7 +408,7 @@ pip install wgpu  # For experiments 1-2
 echo $WANDB_API_KEY
 
 # Re-login
-wandb login b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
+wandb login <YOUR_WANDB_API_KEY>
 ```
 
 ### Issue: Zenodo upload fails
@@ -378,7 +417,7 @@ wandb login b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
 - Try splitting large files
 
 ### Issue: FTP to Figshare fails
-- Verify credentials: Username `5292188`, Password `$GNJmzWHcQL6XSS`
+- Verify credentials: Username `5292188`, Password `<FIGSHARE_PASSWORD>`
 - Check firewall settings for FTP
 - Try web interface instead
 
@@ -398,6 +437,38 @@ python publish/run_experiment.py --exp 1 2>&1 | tee experiment_1_output.log
 
 For questions or issues:
 - GitHub Issues: https://github.com/Agnuxo1/Consciousness-Emergence-as-Phase-Transition-in-GPU-Native-Neuromorphic-Computing/issues
+
+## Authentication & Secrets (PowerShell / Bash)
+
+Set environment variables before running the scripts. DO NOT hard-code tokens in scripts or commit them to git.
+
+Bash (Linux / macOS):
+```bash
+export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
+export ZENDO_TOKEN="<YOUR_ZENODO_TOKEN>"
+export OSF_TOKEN="<YOUR_OSF_TOKEN>" # optional
+export FIGSHARE_USERNAME="5292188"
+export FIGSHARE_PASSWORD="<FIGSHARE_PASSWORD>"
+export HF_TOKEN="<YOUR_HUGGINGFACE_TOKEN>"
+export OPENML_API_KEY="<YOUR_OPENML_API_KEY>"
+```
+
+PowerShell (Windows):
+```powershell
+$env:WANDB_API_KEY = '<YOUR_WANDB_API_KEY>'
+$env:ZENDO_TOKEN = '<YOUR_ZENODO_TOKEN>'
+$env:OSF_TOKEN = '<YOUR_OSF_TOKEN>' # optional
+$env:FIGSHARE_USERNAME = '5292188'
+$env:FIGSHARE_PASSWORD = '<FIGSHARE_PASSWORD>'
+$env:HF_TOKEN = '<YOUR_HUGGINGFACE_TOKEN>'
+$env:OPENML_API_KEY = '<YOUR_OPENML_API_KEY>'
+```
+
+Helpful hints:
+- Use GitHub Secrets to store tokens for CI (Actions). See `README_SECRETS.md` for guidance.
+- For HF token: create via https://huggingface.co/settings/tokens with `repo` scope.
+- For OSF: create personal access token via https://osf.io/settings/tokens/ and mark `publish` (if needed).
+- For Zenodo: create token at https://zenodo.org/account/settings/applications/ and give `deposit:write` permission.
 - Contact: Francisco Angulo de Lafuente
 
 ## License

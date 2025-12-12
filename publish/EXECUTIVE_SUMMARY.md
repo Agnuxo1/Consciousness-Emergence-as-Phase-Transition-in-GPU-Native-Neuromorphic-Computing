@@ -153,7 +153,7 @@ python publish/audit_experiments.py
 python publish/run_benchmarks.py
 
 # 3. Crear dashboards W&B
-export WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
 python publish/create_public_dashboards.py
 
 # 4. Subir a todas las plataformas
@@ -187,7 +187,7 @@ python publish/run_experiment.py --exp 3
 
 3. **Crear Dashboard W&B Público** (10 min)
    ```bash
-   export WANDB_API_KEY="b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae"
+   export WANDB_API_KEY="<YOUR_WANDB_API_KEY>"
    python publish/create_public_dashboards.py
    # Luego hacer proyecto público en W&B web
    ```
@@ -297,11 +297,11 @@ Figshare: https://figshare.com/
 
 ### Credenciales (Guardar Seguro)
 ```
-W&B API: b017394dfb1bfdbcaf122dcd20383d5ac9cb3bae
-Zenodo Token: lDYsHSupjRQXYxMAMihKn5lQwamqnsBliy0kwXbdUBg4VmxxuePbXxCpq2iw
-OSF Token: KSAPimE65LQJ648xovRICXTSKHSnQT2xRgunNM1QHf6tu3eI81x1Z7b0vHduNJFTFgVKhL
+W&B API: <YOUR_WANDB_API_KEY>
+Zenodo Token: <YOUR_ZENODO_TOKEN>
+OSF Token: <YOUR_OSF_TOKEN>
 Figshare User: 5292188
-Figshare Pass: $GNJmzWHcQL6XSS
+Figshare Pass: <FIGSHARE_PASSWORD>
 ```
 
 ## ✨ Características Destacadas del Sistema
